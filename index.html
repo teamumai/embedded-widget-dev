@@ -9,8 +9,44 @@
       content="DEV widget embedded in restaurant website"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://s3-ap-southeast-1.amazonaws.com/widget.dev.letsumai.com/dist/embed.min.js"></script>
+    <script type="text/javascript">
+      function init(event) {
+        ["#make-reservation"].forEach((id) => {
+          var links = document.querySelectorAll(id);
+          links.forEach((link) => {
+            link.addEventListener("click", function (e) {
+              e.preventDefault();
+              umaiWidget.config({
+                apiKey: "8999d9a4-132e-4b35-a29b-079ad76acd27",
+                widgetType: "reservation",
+              });
+              umaiWidget.openWidget();
+              return false;
+            });
+          });
+        });
+      }
+      document.addEventListener("DOMContentLoaded", init);
+      window.addEventListener("mercury:load", init);
+    </script>
   </head>
   <body>
     <h1>Welcome to my restaurant</h1>
+    <button type="button" id="make-reservation">Make a reservation!</button>
+    <section>
+      <dl>
+        <dt>Venue name:</dt>
+        <dd>Makan Boss Singapore</dd>
+        <dt>UMAI url:</dt>
+        <dd>
+          <a
+            href="https://gthegrey.letsumai.com/widget/makan-boss-singapore"
+            target="_blank"
+            >https://gthegrey.letsumai.com/widget/makan-boss-singapore</a
+          >
+        </dd>
+      </dl>
+    </section>
   </body>
 </html>
