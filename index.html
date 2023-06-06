@@ -3,50 +3,26 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>DEV widget</title>
+    <title>Embedded UMAI widget QA</title>
     <meta
       name="description"
-      content="DEV widget embedded in restaurant website"
+      content="UMAI widget embedded in restaurant website for QA testing on DEV and STAGING"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://s3-ap-southeast-1.amazonaws.com/widget.dev.letsumai.com/dist/embed.min.js"></script>
-    <script type="text/javascript">
-      function init(event) {
-        ["#make-reservation"].forEach((id) => {
-          var links = document.querySelectorAll(id);
-          links.forEach((link) => {
-            link.addEventListener("click", function (e) {
-              e.preventDefault();
-              umaiWidget.config({
-                apiKey: "8999d9a4-132e-4b35-a29b-079ad76acd27",
-                widgetType: "reservation",
-              });
-              umaiWidget.openWidget();
-              return false;
-            });
-          });
-        });
-      }
-      document.addEventListener("DOMContentLoaded", init);
-      window.addEventListener("mercury:load", init);
-    </script>
   </head>
   <body>
-    <h1>Welcome to my restaurant</h1>
-    <button type="button" id="make-reservation">Make a reservation!</button>
-    <section>
-      <dl>
-        <dt>Venue name:</dt>
-        <dd>Makan Boss Singapore</dd>
-        <dt>UMAI url:</dt>
-        <dd>
-          <a
-            href="https://gthegrey.letsumai.com/widget/makan-boss-singapore"
-            target="_blank"
-            >https://gthegrey.letsumai.com/widget/makan-boss-singapore</a
-          >
-        </dd>
-      </dl>
-    </section>
+    <h1>Embedded widget QA</h1>
+    <p>
+      All environments use KWC Singapore by default.<br />
+      To test the widget of another venue, add the API key of that venue as a
+      query parameter to the respective url.
+    </p>
+    <p>For example: <strong>https://teamumai.github.io/embedded-widget-qa/staging?apiKey=ff47ab19-26bb-4eb1-97b3-c0d79ab398c3<strong></p>
+    <nav>
+      <h3>Environments:</h3>
+      <div><a href="./dev.html">DEV</a></div>
+      <div><a href="./staging.html">STAGING</a></div>
+      <div><a href="./production.html">PRODUCTION</a></div>
+    </nav>
   </body>
 </html>

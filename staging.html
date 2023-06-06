@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>STAGING widget</title>
+    <meta
+      name="description"
+      content="STAGING widget embedded in restaurant website"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://widgetstaging.letsumai.com/dist/embed.min.js"></script>
+    <script type="text/javascript">
+      function init(event) {
+        const params = new URL(document.location).searchParams;
+        const apiKey = params.get("apiKey");
+
+        ["#make-reservation"].forEach((id) => {
+          var links = document.querySelectorAll(id);
+          links.forEach((link) => {
+            link.addEventListener("click", function (e) {
+              e.preventDefault();
+              umaiWidget.config({
+                // Use KWC Singapore when no apiKey is provided in the query params
+                apiKey: apiKey || "46e20232-40c3-4fc2-87a9-a01f2c4b8266",
+                widgetType: "reservation",
+              });
+              umaiWidget.openWidget();
+              return false;
+            });
+          });
+        });
+      }
+      document.addEventListener("DOMContentLoaded", init);
+      window.addEventListener("mercury:load", init);
+    </script>
+  </head>
+  <body>
+    <h1>STAGING</h1>
+    <h2>Welcome to my Restaurant!</h2>
+    <button type="button" id="make-reservation">Make a reservation!</button>
+  </body>
+</html>

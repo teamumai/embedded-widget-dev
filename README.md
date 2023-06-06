@@ -1,3 +1,5 @@
-# embedded-widget-dev
+# embedded-widget-qa
 
-Used to QA embedded widget on partner website on DEV environment
+Used to QA widget embedded in partner website on DEV, STAGING and PRODUCTION environments
+
+https://teamumai.github.io/embedded-widget-qa/
