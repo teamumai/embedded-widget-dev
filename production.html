@@ -11,7 +11,7 @@
     const params = new URL(document.location).searchParams;
     const script = document.createElement("script");
     script.src = "https://widget.letsumai.com/dist/embed.min.js";
-    script.setAttribute("data-api-key", params.get("apiKey") || "9f75d170-1df0-4e56-a195-d6227f05e1e9");
+    script.setAttribute("data-api-key", params.get("apiKey") || "fccdb18c-349d-43bc-bc01-f845270dfc8e");
     script.setAttribute("data-widget-type", "reservation");
     document.head.appendChild(script);
   </script>
@@ -27,7 +27,7 @@
             e.preventDefault();
             umaiWidget.config({
               // Use KWC Singapore when no apiKey is provided in the query params
-              apiKey: apiKey || "9f75d170-1df0-4e56-a195-d6227f05e1e9",
+              apiKey: apiKey || "fccdb18c-349d-43bc-bc01-f845270dfc8e",
               widgetType: "reservation",
             });
             umaiWidget.openWidget();
@@ -37,7 +37,7 @@
       });
       umaiWidget.config({
         // Use KWC Singapore when no apiKey is provided in the query params
-        apiKey: apiKey || "9f75d170-1df0-4e56-a195-d6227f05e1e9",
+        apiKey: apiKey || "fccdb18c-349d-43bc-bc01-f845270dfc8e",
         widgetType: "reservation",
       });
 
