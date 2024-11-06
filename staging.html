@@ -7,7 +7,14 @@
   <title>STAGING widget</title>
   <meta name="description" content="STAGING widget embedded in restaurant website" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="https://widgetstaging.letsumai.com/dist/embed.min.js"></script>
+  <script>
+    const params = new URL(document.location).searchParams;
+    const script = document.createElement("script");
+    script.src = "https://widgetstaging.letsumai.com/dist/embed.min.js";
+    script.setAttribute("data-api-key", params.get("apiKey") || "46e20232-40c3-4fc2-87a9-a01f2c4b8266");
+    script.setAttribute("data-widget-type", "reservation");
+    document.head.appendChild(script);
+  </script>
   <script type="text/javascript">
     function init(event) {
       const params = new URL(document.location).searchParams;

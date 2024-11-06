@@ -7,7 +7,14 @@
   <title>DEV widget</title>
   <meta name="description" content="DEV widget embedded in restaurant website" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="https://s3-ap-southeast-1.amazonaws.com/widget.dev.letsumai.com/dist/embed.min.js"></script>
+  <script>
+    const params = new URL(document.location).searchParams;
+    const script = document.createElement("script");
+    script.src = "https://s3-ap-southeast-1.amazonaws.com/widget.dev.letsumai.com/dist/embed.min.js";
+    script.setAttribute("data-api-key", params.get("apiKey") || "66ec67a8-6fce-41b0-8352-4d2eb02876f5");
+    script.setAttribute("data-widget-type", "reservation");
+    document.head.appendChild(script);
+  </script>
   <script type="text/javascript">
     function init(event) {
       const params = new URL(document.location).searchParams;

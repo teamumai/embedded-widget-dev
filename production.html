@@ -7,7 +7,14 @@
   <title>PRODUCTION widget</title>
   <meta name="description" content="PRODUCTION widget embedded in restaurant website" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="https://widget.letsumai.com/dist/embed.min.js"></script>
+  <script>
+    const params = new URL(document.location).searchParams;
+    const script = document.createElement("script");
+    script.src = "https://widget.letsumai.com/dist/embed.min.js";
+    script.setAttribute("data-api-key", params.get("apiKey") || "9f75d170-1df0-4e56-a195-d6227f05e1e9");
+    script.setAttribute("data-widget-type", "reservation");
+    document.head.appendChild(script);
+  </script>
   <script type="text/javascript">
     function init(event) {
       const params = new URL(document.location).searchParams;
